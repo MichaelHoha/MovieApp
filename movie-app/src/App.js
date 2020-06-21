@@ -1,26 +1,69 @@
-import React from 'react';
-import logo from './logo.svg';
+import { HashRouter as Router, Route, Switch, } from 'react-router-dom';
+import BestMovies from './components/BestMovies';
+import AllMovies from './components/AllMovies';
+import HomePage from './components/HomePage';
+import Header from './components/Header';
+import React, { useState } from 'react';
+import TheMovie from './TheMovie';
 import './App.css';
 
-function App() {
+export default function App(props) {
+
+  const [movie, setMovie] = useState([]);
+
+  const sendMovies = (e) => {
+    setMovie(e)
+
+  }
+
+  const addRate = (index) => {
+    if (movie[index].rate.length < 5) {
+      movie[index].rate.push(movie[index].rate.length + 1);
+      setMovie([...movie]);
+    }
+    else {
+      alert('The rate is max 5!');
+    }
+  }
+
+  const unlikeRate = (index) => {
+    if (movie[index].rate.length >= 1) {
+      movie[index].rate.pop(movie[index].rate);
+      setMovie([...movie]);
+    }
+    else {
+      alert('The rate cant get lower!')
+    }
+  }
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header headerTitle='BM' />
+      <Router>
+        <BestMovies movie={movie} />
+        <AllMovies sendMovies={sendMovies} />
+        <Switch>
+          {movie.map((element, index) => {
+            return (
+              <Route exact path='/' component={() => {
+                return <HomePage addRate={addRate} unlikeRate={unlikeRate} movie={movie} index={index} />
+              }} />
+            )
+          })}
+
+          {movie.map((element, index) => {
+            return (
+              <Route exact path={`/movie${element.name}`}
+                component={() => {
+                  return <TheMovie addRate={addRate} unlikeRate={unlikeRate} index={index}
+                    poster={element.poster} name={element.name} rate={element.rate} info={element.info} />
+                }} />
+            )
+          })}
+
+        </Switch>
+      </Router>
     </div>
   );
 }
-
-export default App;

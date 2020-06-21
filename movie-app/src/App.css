@@ -1,38 +1,62 @@
 .App {
   text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-logo {
+  border-bottom: 1px solid rgb(100, 100, 100 , 0.2);
+  height: 30px;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.the-movie {
+  background-size: cover;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: white;
+  height: 200px;
+  width: 150px;
+
 }
 
-.App-link {
-  color: #61dafb;
+.movies-button {
+  background-size: cover;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: white;
+  height: 200px;
+  width: 150px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.all-movies-button {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  background-size: cover;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  height: 200px;
+  width: 150px;
+  
+}
+
+.all-movies {
+  float: right;
+}
+
+.side-bar {
+  padding: 0;
+  margin: 0;
+
+}
+
+.rate-button {
+  background-color: transparent;
+  border: 0;
+}
+
+.movie-info {
+  
 }

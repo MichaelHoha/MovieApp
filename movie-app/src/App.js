@@ -4,7 +4,7 @@ import AllMovies from './components/AllMovies';
 import HomePage from './components/HomePage';
 import Header from './components/Header';
 import React, { useState } from 'react';
-import TheMovie from './TheMovie';
+import TheMovie from './components/TheMovie';
 import './App.css';
 
 export default function App() {

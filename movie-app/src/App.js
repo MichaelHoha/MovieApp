@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import TheMovie from './TheMovie';
 import './App.css';
 
-export default function App(props) {
+export default function App() {
 
   const [movie, setMovie] = useState([]);
 
@@ -19,31 +19,37 @@ export default function App(props) {
   const addRate = (index) => {
     if (movie[index].rate.length < 5) {
       movie[index].rate.push(movie[index].rate.length + 1);
+
       setMovie([...movie]);
+
     }
     else {
-      alert('The rate is max 5!');
+      alert('The rate cant be bigger then 5!');
+
     }
   }
 
   const unlikeRate = (index) => {
     if (movie[index].rate.length >= 1) {
       movie[index].rate.pop(movie[index].rate);
+
       setMovie([...movie]);
+
     }
     else {
-      alert('The rate cant get lower!')
+      alert('You killed the movie!')
+
     }
   }
-  
 
   return (
-    <div className="App">
+    <div className="App"> 
       <Header headerTitle='BM' />
       <Router>
-        <BestMovies movie={movie} />
         <AllMovies sendMovies={sendMovies} />
+        <BestMovies movie={movie} />
         <Switch>
+
           {movie.map((element, index) => {
             return (
               <Route exact path='/' component={() => {

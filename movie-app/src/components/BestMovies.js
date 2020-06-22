@@ -11,16 +11,15 @@ export default function BestMovies(props) {
                 if (element.rate.length == 5) {
 
                     return (
+                        
                         /// it return a button with a link route you need
                         <Link to={`movie${element.name}`}>
-                            <button className='movies-button'
-                                style={{ backgroundImage: `url(${element.poster})` }}>
-                                </button>
+                            <button className='movies-button' style={{ backgroundImage: `url(${element.poster})` }}> </button>
+
                         </Link>
                     )
                 }
             })}
-
         </div>
     )
 }

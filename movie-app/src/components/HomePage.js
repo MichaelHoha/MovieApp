@@ -9,7 +9,7 @@ export default function HomePage(props) {
         <div className='home-page'>
 
             {props.movie.map((element, index) => {
-                if (index == 0) {
+                if (element.rate == 1) {
 
                     return (
                         <div>
@@ -29,6 +29,7 @@ export default function HomePage(props) {
                             </Link>
 
                             <p className='movie-info'>Description: <br/> {element.info}</p>
+                            
                         </div>
 
                     )
